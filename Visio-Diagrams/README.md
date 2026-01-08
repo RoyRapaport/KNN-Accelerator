@@ -44,4 +44,4 @@ This directory contains the high-resolution architectural diagrams for the KNN C
 ---
 
 ## 🎨 Design Tools
-Architectural schemes were developed using **Microsoft Visio**
+Architectural schemes were developed using **Microsoft Visio**.
