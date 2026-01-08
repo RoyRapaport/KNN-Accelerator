@@ -7,7 +7,6 @@ This directory contains the high-resolution architectural diagrams for the KNN C
 ### 1. Top-Level Chip Architecture
 * **File:** `KNN Accelerator.png`
 * **Description:** A detailed schematic of the `top_chip` module. It shows the global connectivity between the I/O pads, the internal FSM controller, the processing core, and the output flip-flops ensuring all outputs come directly from registers.
-[Image of the Top Level Architecture Scheme]
 
 ### 2. Finite State Machine (FSM)
 * **File:** `Controller.png`
@@ -20,7 +19,6 @@ This directory contains the high-resolution architectural diagrams for the KNN C
 ### 3. Parallel Distance Calculators
 * **File:** `Distance Calculator.png`
 * **Description:** A block diagram showing the 4-way parallel implementation of the Manhattan Distance logic. It illustrates the concurrent calculation of $|x1-x2| + |y1-y2|$ to reduce system latency from 128 to 32 cycles.
-[Image of the Distance Calculator Unit]
 
 ### 4. Optimized Sorting Network (Bitonic Sort)
 * **File:** `Bitonic Sort.png`
