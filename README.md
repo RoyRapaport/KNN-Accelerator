@@ -50,7 +50,7 @@ The top-level architecture is partitioned into several high-performance sub-modu
 
 ## 📂 Repository Structure
 * `rtl_files/`: Synthesizable Verilog source code, sub-modules, and verification environments (Testbenches).
-* `visio_diagrams/`: Architectural schemes, logic phases, and backend layout visualizations (Floorplan, CTS, Routing).
+* `visio_diagrams/`: Architectural schemes, logic phases.
 * `general_files/`: Final technical report and project summary presentations.
 
 ---
