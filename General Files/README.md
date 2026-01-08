@@ -16,8 +16,6 @@ The complete engineering document providing a comprehensive overview of the proj
 ### 1. Frontend Design & Architecture
 **File:** `KNN Presentation - Front-end.pptx`
 * **KNN Algorithm Overview**: The K-Nearest Neighbors (KNN) is a non-parametric, supervised learning algorithm used for classification tasks. It predicts the category of a test point by identifying its K closest neighbors in an n-dimensional feature space. In this design, the system compares the test point against 128 labeled training points to find the majority group among the 5 nearest neighbors.
-  
-Highlights the design phase and functional verification of the accelerator.
 * **Architecture**: Breakdown of the 4-way parallel distance calculation and the 3-phase Bitonic Sort network.
 * **Verification Logic**: Utilization of **Synopsys VCS** for simulation and **SystemVerilog Assertions (SVA)** for protocol checking.
 
@@ -39,6 +37,5 @@ Focuses on the physical realization of the chip in **TSMC 65nm** technology.
 ---
 
 ## 🛠 Project Ecosystem (Toolchain)
-* **Frontend**: Synopsys VCS, Cadence Conformal LEC.
-* **Backend**: Synopsys Design Compiler, Cadence Innovus, Synopsys PrimeTime.
-* **Validation**: Python (NumPy) for golden model generation.
+* **Frontend**: Synopsys VCS, Synopsys Euclide.
+* **Backend**: Synopsys Design Compiler, Cadence Conformal LEC, Cadence Innovus, Synopsys PrimeTime , Cadence Virtuoso. 
