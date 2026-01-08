@@ -1,6 +1,6 @@
 # Project Documentation & Technical Reports
 
-This directory serves as the knowledge base for the KNN Classifier Accelerator project. It contains the official documentation, architectural deep-dives, and backend sign-off reports presented to the Technion and Apple Israel.
+This directory serves as the knowledge base for the KNN Classifier Accelerator project. It contains the official documentation, architectural deep-dives, and the back-end process overview presented to the **Technion** and **Apple Israel**.
 
 ## 📄 Final Technical Report
 **File:** `KNN Classifier - Final Report.pdf`
@@ -15,15 +15,18 @@ The complete engineering document providing a comprehensive overview of the proj
 
 ### 1. Frontend Design & Architecture
 **File:** `KNN Presentation - Front-end.pptx`
+* **KNN Algorithm Overview**: The K-Nearest Neighbors (KNN) is a non-parametric, supervised learning algorithm used for classification tasks. It predicts the category of a test point by identifying its K closest neighbors in an n-dimensional feature space. In this design, the system compares the test point against 128 labeled training points to find the majority group among the 5 nearest neighbors.
+  
 Highlights the design phase and functional verification of the accelerator.
 * **Architecture**: Breakdown of the 4-way parallel distance calculation and the 3-phase Bitonic Sort network.
 * **Verification Logic**: Utilization of **Synopsys VCS** for simulation and **SystemVerilog Assertions (SVA)** for protocol checking.
-* **Logical Equivalence**: Verification of RTL vs. Netlist using **Cadence Conformal LEC**.
+
 
 ### 2. Backend & Physical Implementation
 **File:** `KNN Presentation - Back-end.pptx`
 Focuses on the physical realization of the chip in **TSMC 65nm** technology.
 * **Synthesis & Optimization**: Using **Synopsys Design Compiler** to reach a 100MHz target frequency.
+* **Logical Equivalence**: Verification of RTL vs. Netlist using **Cadence Conformal LEC**.
 * **Physical Implementation**: 
     * **Floorplan**: 48 I/O pads with optimized power ring distribution.
     * **CTS**: Balanced clock tree with **60ps skew** and **280ps insertion delay**.
