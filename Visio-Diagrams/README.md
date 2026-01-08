@@ -30,7 +30,7 @@ This directory contains the high-resolution architectural diagrams for the KNN C
     * **Implementation:** The diagram shows how this custom 9-number sorting network is optimized to identify only the 5 smallest distances (K=5) rather than performing a full sort. This optimization allowed us to use only 22 comparators and 40 MUXes, significantly reducing the chip's core area.
 
 ### 5. Memory Architecture & Shift Registers
-* **File:** `Memory.png`
+* **File:** `Memory - option 2.png`
 * **Description:** This scheme details how the 128 labeled training points are stored and managed.
     * **Design Options:** Two main architectures were considered:
         1. **Address-Based MUX (Option 1):** Traditional memory addressing, which proved to have high complexity in control and routing.
