@@ -1,6 +1,6 @@
 # RTL Design & Verification (SystemVerilog)
 
-This directory contains the complete Hardware Description Language (HDL) implementation of the KNN Accelerator, including all sub-modules and their respective verification environments.
+This directory contains the complete System Verilog implementation of the KNN Accelerator, including all sub-modules and their respective verification environments.
 
 ## 📁 Directory Structure
 
