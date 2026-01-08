@@ -1,7 +1,5 @@
-# KNN-Accelerator
-The KNN classifier accelerator leverages parallel processing and a custom hardware architecture to enhance the performance of the KNN algorithm. Our work involved software implementation, architectural and logic design, the verification and simulation of the system.
-
 # KNN Classifier Hardware Accelerator
+The KNN classifier accelerator leverages parallel processing and a custom hardware architecture to enhance the performance of the KNN algorithm. Our work involved software implementation, architectural and logic design, the verification and simulation of the system.
 
 This repository contains the complete design and implementation of a high-performance hardware accelerator for the **K-Nearest Neighbors (KNN)** algorithm. The project was developed at the **Technion - Israel Institute of Technology** (Faculty of Electrical & Computer Engineering) in collaboration with **Apple Israel**.
 
