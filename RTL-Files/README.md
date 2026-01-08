@@ -1,23 +1,45 @@
-# Visual Architecture & Physical Layout Gallery
+# RTL Design & Verification (SystemVerilog)
 
-This directory contains the high-resolution architectural diagrams and backend layout visualizations for the KNN Classifier Accelerator. These visuals represent the design evolution from logical block diagrams to the final 65nm silicon layout.
+This directory contains the complete Hardware Description Language (HDL) implementation of the KNN Accelerator, including all sub-modules and their respective verification environments.
 
-## 📐 Logical & Architectural Diagrams
+## 📁 Directory Structure
 
-### 1. Top-Level Architecture
-Detailed schematic showing the global connectivity between the FSM Controller, Parallel Distance Calculation Units, and the Bitonic Sorting Network.
-[Image of the Top Level Block Diagram of the KNN Classifier]
-
-### 2. Custom Bitonic Sort Phases
-A comprehensive breakdown of our optimized sorting network, illustrating Phase 1 (Pairwise Comparison), Phase 2 (4-Element Merge), and Phase 3 (Smallest-5 Extraction).
-[Image of the custom 9-number Bitonic Sort phases]
-
-### 3. FSM State Transitions
-The Finite State Machine (Mealy) logic, showcasing the conditions for transitions between `Idle`, `Memory_write`, `Transition_st`, `Sort`, and `Knn_finished`.
+* **Modules (`*.sv` / `*.v`):** Synthesizable logic for the KNN core.
+* **Testbenches (`*_tb.sv`):** Unit and system-level verification environments.
 
 ---
 
-## 🏗 Backend & Physical Design (Signoff)
+## 🏗 Core Modules Breakdown
 
-### 4. Floorplan & Power Grid
-Visualization of the die area ($1000 \times 1060 \mu m^2$), featuring the VDD/VSS Power Rings and the strategic placement of 48 I/O pads.
+### 1. Data Management & Memory
+* **`memory.sv`**: Implements a cyclic 128-entry shift register for labeled training points. Choice of shift-register architecture over address-based MUX significantly reduced control signal complexity.
+* **`test_point_reg.sv`**: Dedicated registers for latching the unlabeled test point coordinates.
+
+### 2. Computation Engines
+* **`distance_calc.sv`**: Implements parallel Manhattan Distance logic. Subtracts coordinates and sums absolute differences while preserving the labeled group bit (MSB).
+* **`bitonic_sort.sv`**: A custom, area-optimized 9-number sorting network. Modified to extract only the 5 nearest neighbors to save hardware resources (utilizing 22 comparators and 40 MUXes).
+
+### 3. Control & Decision Logic
+* **`controller_fsm.sv`**: A Mealy state machine managing the operation flow. Includes a specialized `transition_st` to ensure valid data latching before computation.
+* **`group_decider.sv`**: Implements majority-vote logic based on the 5 smallest distances to determine the final classification.
+
+---
+
+## ✅ Verification & Testbenches
+
+The verification strategy focused on modular and systemic reliability:
+
+### Unit Testbenches
+Each module includes a dedicated testbench (e.g., `distance_calc_tb.sv`, `bitonic_sort_tb.sv`) to verify:
+* **Memory Integrity**: Correct data shifting during Write/Read phases.
+* **Sorting Accuracy**: Verification of "Smallest-5" extraction across random distance vectors.
+* **Distance Logic**: Correct handling of both positive and negative coordinate differences.
+
+### System-Level Verification (`top_chip_tb.sv`)
+* **End-to-End Classification**: Simulates multiple full KNN cycles, providing new training/test points and verifying the `o_group` output against Python golden vectors.
+* **System Assertions (SVA)**: Integrated checks to monitor `o_busy` status and FSM state transitions during simulation.
+
+---
+
+## 🛠 Simulation Flow
+1. **Compilation**: Compile all
